@@ -1,0 +1,66 @@
+/* Tadawul Academy - external style sheet (shared by all pages) */
+html { background-color: #111111; }
+body { margin: 0; background-color: #F3EEE3; color: #111111; font-family: Arial, Helvetica, sans-serif; font-size: 17px; }
+h1, h2, h3 { color: #111111; margin-top: 0; margin-bottom: 10px; }
+h1 { font-size: 42px; margin-bottom: 18px; }
+h2 { font-size: 26px; }
+h3 { font-size: 19px; }
+p { margin-top: 0; margin-bottom: 14px; }
+a { color: #0B6B45; }
+a:hover { color: #111111; }
+ul, ol { margin-top: 0; margin-bottom: 14px; }
+
+/* Master page: header and menu */
+.wrap { width: 960px; margin: 0 auto; position: relative; }
+.site-header { position: relative; z-index: 100; background-color: #F3EEE3; border-bottom: 2px solid #111111; height: 104px; }
+.logo { float: left; margin-top: 4px; margin-left: -16px; }
+.site-header nav { float: right; margin-top: 30px; }
+.site-header nav ul { list-style: none; margin: 0; padding: 0; }
+.site-header nav li { float: left; position: relative; margin-left: 4px; }
+.site-header nav a { display: block; color: #111111; text-decoration: none; padding: 7px 12px; font-family: Consolas, "Courier New", monospace; font-size: 15px; border: 2px solid #F3EEE3; }
+.site-header nav a:hover { border-color: #111111; color: #111111; }
+.site-header nav .active { background-color: #111111; color: #F3EEE3; border-color: #111111; }
+.site-header nav .active:hover { color: #F3EEE3; }
+.submenu { display: none; position: absolute; top: 100%; left: 0; width: 190px; z-index: 200; background-color: #FBF8F1; border: 2px solid #111111; box-shadow: 4px 4px 0 #111111; }
+.site-header li:hover .submenu { display: block; }
+.site-header .submenu li { float: none; margin-left: 0; }
+
+/* Page body */
+.page { width: 960px; margin: 0 auto; padding-top: 28px; padding-bottom: 10px; position: relative; }
+.side { position: absolute; top: 76px; right: 0; width: 400px; }
+.card { background-color: #FBF8F1; border: 2px solid #111111; padding: 18px 22px 6px 22px; margin-top: 20px; margin-bottom: 20px; }
+.shadow { box-shadow: 6px 6px 0 #111111; }
+.note { border-left: 4px solid #0B6B45; background-color: #FBF8F1; padding: 6px 12px; color: #4A4741; font-size: 15px; }
+.top-link { display: block; margin-top: 8px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; background-color: #FBF8F1; border: 2px solid #111111; margin-bottom: 28px; }
+caption { text-align: left; font-weight: bold; padding-bottom: 8px; }
+th { background-color: #111111; color: #F3EEE3; text-align: left; }
+th, td { border: 1px solid #111111; padding: 10px 12px; text-align: left; }
+tr.alt { background-color: #F3EEE3; }
+.mono { font-family: Consolas, "Courier New", monospace; }
+
+/* Forms */
+.form-box { width: 440px; }
+label { display: block; margin-top: 14px; margin-bottom: 4px; font-weight: bold; }
+.field { width: 320px; padding: 8px 10px; border: 2px solid #111111; background-color: #FBF8F1; font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #111111; }
+.pick { width: 344px; }
+.field:focus { border-color: #0B6B45; background-color: #FFFFFF; }
+.inline { display: inline; font-weight: normal; margin-top: 0; margin-bottom: 0; margin-right: 14px; }
+.error { color: #9B1C1C; font-size: 15px; margin-top: 2px; margin-bottom: 0; }
+.msg { color: #0B6B45; font-weight: bold; margin-top: 14px; }
+.result { margin-top: 14px; padding: 12px 14px; border: 2px solid #0B6B45; background-color: #FBF8F1; font-weight: bold; }
+.btn { background-color: #111111; color: #F3EEE3; border: 2px solid #111111; padding: 10px 22px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 4px 4px 0 #0B6B45; margin-top: 16px; margin-right: 12px; }
+.btn:hover { background-color: #0B6B45; border-color: #0B6B45; }
+
+/* Footer */
+.site-footer { background-color: #111111; color: #F3EEE3; padding-top: 18px; padding-bottom: 12px; margin-top: 32px; font-size: 15px; }
+.site-footer p { margin-bottom: 6px; }
+.site-footer a { color: #F3EEE3; }
+
+/* Print: plain white page, no header or footer */
+@media print {
+  body { background-color: #FFFFFF; }
+  .site-header, .site-footer { display: none; }
+}

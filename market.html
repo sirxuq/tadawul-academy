@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!-- market.html: part of the Tadawul Academy website (CPIS-358, Assignment 1) -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Beginner guide to the Saudi stock market">
+<title>Market Data and Calculator | Tadawul Academy</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/script.js"></script>
+</head>
+<body id="top" onload="showYear()">
+<header class="site-header">
+<div class="wrap">
+<img src="images/logo.svg" class="logo" width="340" height="96" alt="Tadawul Academy logo. Click it to open the About Us page." usemap="#logomap">
+<map name="logomap"><area shape="circle" coords="48,48,32" href="about.html" alt="About Us (icon)"><area shape="rect" coords="98,0,340,96" href="about.html" alt="About Us (title)"></map>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="learn.html">Learn</a><ul class="submenu"><li><a href="learn.html#basics">Market Basics</a></li><li><a href="learn.html#glossary">Glossary</a></li><li><a href="learn.html#first-steps">First Steps</a></li></ul></li>
+<li><a href="market.html" class="active">Market Data</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="signup.html">Sign Up</a></li>
+<li><a href="about.html">About Us</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="page">
+<h1>Market data and calculator</h1>
+<p><a href="#companies">Example companies</a> | <a href="#calculator">Growth calculator</a></p>
+<section id="companies">
+<h2>Example companies</h2>
+<table summary="Well-known companies listed on the Saudi Exchange">
+<caption>Well-known companies listed on the Saudi Exchange (examples only)</caption>
+<thead><tr><th>Ticker</th><th>Company</th><th>Sector</th></tr></thead>
+<tbody>
+<tr><td class="mono">2222</td><td>Saudi Aramco</td><td>Energy</td></tr>
+<tr class="alt"><td class="mono">1120</td><td>Al Rajhi Bank</td><td>Banks</td></tr>
+<tr><td class="mono">7010</td><td>stc</td><td>Telecommunication</td></tr>
+<tr class="alt"><td class="mono">2010</td><td>SABIC</td><td>Materials</td></tr>
+<tr><td class="mono">1211</td><td>Maaden</td><td>Materials</td></tr>
+</tbody></table>
+<p class="note">This list shows examples to learn from. It does not recommend any company, and the site shows no live prices.</p>
+</section>
+<section id="calculator" class="card shadow">
+<h2>Growth calculator</h2>
+<p>See how regular saving could grow with an assumed yearly return.</p>
+<form name="calcForm" method="post" onsubmit="return calculate()">
+<label for="initial">Starting amount (SAR)</label>
+<input type="number" id="initial" name="initial" class="field" min="0" value="1000" required>
+<label for="monthly">Monthly saving (SAR)</label>
+<input type="number" id="monthly" name="monthly" class="field" min="0" value="500" required>
+<label for="rate">Assumed yearly return (%)</label>
+<input type="number" id="rate" name="rate" class="field" min="0" max="50" step="0.1" value="6" required>
+<label for="years">Years</label>
+<input type="number" id="years" name="years" class="field" min="1" max="50" step="1" value="10" required>
+<p><input type="submit" class="btn" value="Calculate growth"></p>
+</form>
+<div id="calcResult" class="result">Your result will appear here.</div>
+</section>
+<a class="top-link" href="#top">Back to top</a>
+</div>
+<footer class="site-footer">
+<div class="wrap">
+<p>&copy; <span id="year">2026</span> Tadawul Academy | CPIS-358 Assignment 1 | Educational content only, not financial advice.</p>
+<p><a href="index.html">Home</a> | <a href="learn.html">Learn</a> | <a href="market.html">Market Data</a> | <a href="about.html">About Us</a></p>
+</div>
+</footer>
+</body>
+</html>
