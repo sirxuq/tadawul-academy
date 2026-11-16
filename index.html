@@ -21,6 +21,10 @@
 .back h2 { color: #F3EEE3; }
 .front { top: 100px; left: 0; z-index: 2; background-color: #FBF8F1; box-shadow: 6px 6px 0 #111111; }
 .badge { position: absolute; top: -20px; left: -6px; z-index: 3; background-color: #111111; color: #F3EEE3; padding: 4px 12px; font-family: Consolas, "Courier New", monospace; font-size: 14px; }
+.faq-item { background-color: #FBF8F1; border: 2px solid #111111; padding: 12px 18px; margin-bottom: 12px; }
+.faq-item:hover { box-shadow: 5px 5px 0 #0B6B45; }
+.faq-item summary { font-weight: bold; font-size: 18px; }
+.faq-item p { margin-top: 12px; margin-bottom: 0; padding-top: 12px; border-top: 1px solid #111111; }
 </style>
 </head>
 <body id="top" onload="showYear(); showGreeting()">
@@ -84,6 +88,25 @@
 <li>Explore the example companies on the <a href="market.html">Market Data</a> page.</li>
 <li><a href="signup.html">Sign up</a> to follow along (demo account).</li>
 </ol>
+</section>
+<section id="faq">
+<h2>Common questions</h2>
+<details class="faq-item">
+<summary>Is this financial advice?</summary>
+<p>No. Tadawul Academy is an educational project. It never tells you what to buy or sell.</p>
+</details>
+<details class="faq-item">
+<summary>Do I need money to use the site?</summary>
+<p>No. Everything here is free, and no payment details are ever asked for.</p>
+</details>
+<details class="faq-item">
+<summary>Is the login real?</summary>
+<p>No. The login and sign-up pages are demos, so nothing you type is saved.</p>
+</details>
+<details class="faq-item">
+<summary>Who made this website?</summary>
+<p>Two Information Systems students at King Abdulaziz University, for the CPIS-358 course. See the <a href="about.html">About Us</a> page.</p>
+</details>
 </section>
 <p class="note" style="font-weight: bold;">Educational website only. Nothing here is financial advice.</p>
 <a class="top-link" href="#top">Back to top</a>
