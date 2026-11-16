@@ -42,3 +42,16 @@ function calculate() {
     " (you would have put in SAR " + parseInt(deposited) + "). This is an example, not a promise.";
   return false;
 }
+// Shows a greeting that depends on the time of day
+function showGreeting() {
+  var hour = new Date().getHours();
+  var text;
+  if (hour < 12) {
+    text = "Good morning";
+  } else if (hour < 18) {
+    text = "Good afternoon";
+  } else {
+    text = "Good evening";
+  }
+  document.getElementById("greeting").innerHTML = text + ", and welcome to Tadawul Academy!";
+}

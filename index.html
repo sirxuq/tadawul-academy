@@ -10,7 +10,7 @@
 <script src="js/script.js"></script>
 <style type="text/css">
 /* Internal CSS: used only on the home page */
-.hero { position: relative; height: 310px; border-bottom: 2px solid #111111; margin-bottom: 28px; }
+.hero { position: relative; height: 345px; border-bottom: 2px solid #111111; margin-bottom: 28px; }
 .hero-text { width: 540px; }
 .jump a { border: 2px solid #111111; padding: 6px 12px; color: #111111; text-decoration: none; font-family: Consolas, "Courier New", monospace; font-size: 14px; margin-right: 6px; }
 .jump a:hover { background-color: #111111; color: #F3EEE3; }
@@ -23,7 +23,7 @@
 .badge { position: absolute; top: -20px; left: -6px; z-index: 3; background-color: #111111; color: #F3EEE3; padding: 4px 12px; font-family: Consolas, "Courier New", monospace; font-size: 14px; }
 </style>
 </head>
-<body id="top" onload="showYear()">
+<body id="top" onload="showYear(); showGreeting()">
 <header class="site-header">
 <div class="wrap">
 <img src="images/logo.svg" class="logo" width="340" height="96" alt="Tadawul Academy logo. Click it to open the About Us page." usemap="#logomap">
@@ -45,6 +45,7 @@
 <div class="hero-text">
 <h1>Learn how the Saudi stock market works before you put money in it.</h1>
 <p>Tadawul Academy explains shares, sectors and risk on the Saudi Exchange in plain language, with a glossary, example companies and a savings calculator.</p>
+<p id="greeting" class="note"></p>
 <p class="jump"><a href="#problem">The problem</a> <a href="#solution">Our solution</a> <a href="#benefits">Benefits</a> <a href="#how">How it works</a></p>
 </div>
 <div class="stack">
