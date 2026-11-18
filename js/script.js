@@ -64,3 +64,8 @@ function showGreeting() {
   }
   document.getElementById("greeting").innerHTML = text + ", and welcome to Tadawul Academy!";
 }
+
+// Turns the full name into capital letters when the user leaves the box
+function formatName(field) {
+  field.value = field.value.toUpperCase();
+}
