@@ -38,8 +38,17 @@ function calculate() {
     balance = balance * (1 + rate / 1200) + monthly;
   }
 
-  document.getElementById("calcResult").innerHTML = "After " + years + " years you could have about SAR " + parseInt(balance) +
-    " (you would have put in SAR " + parseInt(deposited) + "). This is an example, not a promise.";
+  var message;
+if (balance > deposited * 2) {
+  message = " Your money would more than double.";
+} else if (balance > deposited) {
+  message = " Your money would grow.";
+} else {
+  message = " Your money would not grow with these numbers.";
+}
+
+document.getElementById("calcResult").innerHTML = "After " + years + " years you could have about SAR " + parseInt(balance) +
+  " (you would have put in SAR " + parseInt(deposited) + "). This is an example, not a promise." + message;
   return false;
 }
 // Shows a greeting that depends on the time of day
