@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<!-- index.html: part of the Tadawul Academy website (CPIS-358, Assignment 1) -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Beginner guide to the Saudi stock market">
+<title>Tadawul Academy | Learn Saudi Stock Market Basics</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/script.js"></script>
+<style type="text/css">
+/* Internal CSS: used only on the home page */
+.hero { position: relative; height: 345px; border-bottom: 2px solid #111111; margin-bottom: 28px; }
+.hero-text { width: 540px; }
+.jump a { border: 2px solid #111111; padding: 6px 12px; color: #111111; text-decoration: none; font-family: Consolas, "Courier New", monospace; font-size: 14px; margin-right: 6px; }
+.jump a:hover { background-color: #111111; color: #F3EEE3; }
+.stack { position: absolute; top: 28px; right: 0; width: 380px; height: 250px; }
+.layer { position: absolute; width: 300px; padding: 16px 20px; border: 2px solid #111111; }
+.layer h2 { margin-bottom: 4px; }
+.back { top: 0; right: 0; height: 100px; z-index: 1; background-color: #0B6B45; color: #F3EEE3; }
+.back h2 { color: #F3EEE3; }
+.front { top: 100px; left: 0; z-index: 2; background-color: #FBF8F1; box-shadow: 6px 6px 0 #111111; }
+.badge { position: absolute; top: -20px; left: -6px; z-index: 3; background-color: #111111; color: #F3EEE3; padding: 4px 12px; font-family: Consolas, "Courier New", monospace; font-size: 14px; }
+.faq-item { background-color: #FBF8F1; border: 2px solid #111111; padding: 12px 18px; margin-bottom: 12px; }
+.faq-item:hover { box-shadow: 5px 5px 0 #0B6B45; }
+.faq-item summary { font-weight: bold; font-size: 18px; }
+.faq-item p { margin-top: 12px; margin-bottom: 0; padding-top: 12px; border-top: 1px solid #111111; }
+</style>
+</head>
+<body id="top" onload="showYear(); showGreeting()">
+<header class="site-header">
+<div class="wrap">
+<img src="images/logo.svg" class="logo" width="340" height="96" alt="Tadawul Academy logo. Click it to open the About Us page." usemap="#logomap">
+<map name="logomap"><area shape="circle" coords="48,48,32" href="about.html" alt="About Us (icon)"><area shape="rect" coords="98,0,340,96" href="about.html" alt="About Us (title)"></map>
+<nav>
+<ul>
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="learn.html">Learn</a><ul class="submenu"><li><a href="learn.html#basics">Market Basics</a></li><li><a href="learn.html#glossary">Glossary</a></li><li><a href="learn.html#first-steps">First Steps</a></li></ul></li>
+<li><a href="market.html">Market Data</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="signup.html">Sign Up</a></li>
+<li><a href="about.html">About Us</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="page">
+<section class="hero">
+<div class="hero-text">
+<h1>Learn how the Saudi stock market works before you put money in it.</h1>
+<p>Tadawul Academy explains shares, sectors and risk on the Saudi Exchange in plain language, with a glossary, example companies and a savings calculator.</p>
+<p id="greeting" class="note"></p>
+<p class="jump"><a href="#problem">The problem</a> <a href="#solution">Our solution</a> <a href="#benefits">Benefits</a> <a href="#how">How it works</a></p>
+</div>
+<div class="stack">
+<span class="badge">Free beginner guide</span>
+<div class="layer back"><h2>IPO</h2><p>The first time a company sells shares to the public.</p></div>
+<div class="layer front"><h2>Diversification</h2><p>Spreading your money across different investments so one loss hurts less.</p></div>
+</div>
+</section>
+<article class="card" id="problem">
+<h2>The problem</h2>
+<p>Many students and first-time investors in Saudi Arabia want to start investing but find market terms confusing. Someone who hears about a dividend or an index such as TASI has no simple place to learn what these mean, and may end up following social media tips instead.</p>
+</article>
+<article class="card" id="solution">
+<h2>Our solution</h2>
+<p>Tadawul Academy is a small, structured website. It explains the basics step by step, defines key terms, lists well-known listed companies, and offers a calculator that shows how regular saving could add up over time.</p>
+</article>
+<section id="benefits">
+<h2>Benefits</h2>
+<table summary="Three main benefits of the website">
+<tr>
+<td><h3>Clear language</h3>Every term is explained in short sentences.</td>
+<td><h3>Learn by doing</h3>Try the calculator and read real company examples.</td>
+<td><h3>Safe start</h3>Nothing here asks for money or a trading account.</td>
+</tr>
+</table>
+<ul>
+<li>Know the main parts of the market before you invest.</li>
+<li>Avoid common beginner mistakes.</li>
+<li>Build a base for more advanced study.</li>
+</ul>
+</section>
+<section id="how" class="card">
+<h2>How it works</h2>
+<ol>
+<li>Read the <a href="learn.html">Learn</a> pages.</li>
+<li>Explore the example companies on the <a href="market.html">Market Data</a> page.</li>
+<li><a href="signup.html">Sign up</a> to follow along (demo account).</li>
+</ol>
+</section>
+<section id="faq">
+<h2>Common questions</h2>
+<details class="faq-item">
+<summary>Is this financial advice?</summary>
+<p>No. Tadawul Academy is an educational project. It never tells you what to buy or sell.</p>
+</details>
+<details class="faq-item">
+<summary>Do I need money to use the site?</summary>
+<p>No. Everything here is free, and no payment details are ever asked for.</p>
+</details>
+<details class="faq-item">
+<summary>Is the login real?</summary>
+<p>No. The login and sign-up pages are demos, so nothing you type is saved.</p>
+</details>
+<details class="faq-item">
+<summary>Who made this website?</summary>
+<p>Two Information Systems students at King Abdulaziz University, for the CPIS-358 course. See the <a href="about.html">About Us</a> page.</p>
+</details>
+</section>
+<p class="note" style="font-weight: bold;">Educational website only. Nothing here is financial advice.</p>
+<a class="top-link" href="#top">Back to top</a>
+</div>
+<footer class="site-footer">
+<div class="wrap">
+<p>&copy; <span id="year">2026</span> Tadawul Academy | CPIS-358 Assignment 1 | Educational content only, not financial advice.</p>
+<p><a href="index.html">Home</a> | <a href="learn.html">Learn</a> | <a href="market.html">Market Data</a> | <a href="about.html">About Us</a></p>
+</div>
+</footer>
+</body>
+</html>
