@@ -67,18 +67,56 @@ function growthMessage(balance, deposited) {
   return message;
 }
 
-// Growth calculator on the Market Data page
+// Colors a text box: dark border when it is correct, red when it has a problem
+function markField(fieldId, ok) {
+  var box = document.getElementById(fieldId);
+  if (ok) {
+    box.style.borderColor = "#111111";
+  } else {
+    box.style.borderColor = "#9B1C1C";
+  }
+}
+
+// Growth calculator on the Market Data page (all values are checked by script first)
 function calculate() {
-  var start = parseFloat(document.forms["calcForm"]["initial"].value);
-  var monthly = parseFloat(document.forms["calcForm"]["monthly"].value);
-  var rate = parseFloat(document.forms["calcForm"]["rate"].value);
-  var years = parseInt(document.forms["calcForm"]["years"].value);
+  var startText = document.forms["calcForm"]["initial"].value;
+  var monthlyText = document.forms["calcForm"]["monthly"].value;
+  var rateText = document.forms["calcForm"]["rate"].value;
+  var yearsText = document.forms["calcForm"]["years"].value;
+  var result = document.getElementById("calcResult");
+
+  var start = parseFloat(startText);
+  var monthly = parseFloat(monthlyText);
+  var rate = parseFloat(rateText);
+  var years = parseFloat(yearsText);
+  var error = "";
+
+  if (startText == "" || monthlyText == "" || rateText == "" || yearsText == "") {
+    error = "Please fill in all four boxes.";
+  } else if (start < 0 || monthly < 0) {
+    error = "The amounts cannot be negative.";
+  } else if (rate < 0 || rate > 50) {
+    error = "The yearly return must be between 0 and 50.";
+  } else if (years < 1 || years > 50 || years != parseInt(years)) {
+    error = "Years must be a whole number from 1 to 50.";
+  }
+
+  markField("initial", startText != "" && start >= 0);
+  markField("monthly", monthlyText != "" && monthly >= 0);
+  markField("rate", rateText != "" && rate >= 0 && rate <= 50);
+  markField("years", yearsText != "" && years >= 1 && years <= 50 && years == parseInt(years));
+
+  if (error != "") {
+    result.innerHTML = error;
+    result.style.borderColor = "#9B1C1C";
+    return false;
+  }
 
   var deposited = start + monthly * years * 12;
   var balance = futureValue(start, monthly, rate, years);
-
-  document.getElementById("calcResult").innerHTML = "After " + years + " years you could have about SAR " + parseInt(balance) +
+  result.innerHTML = "After " + years + " years you could have about SAR " + parseInt(balance) +
     " (you would have put in SAR " + parseInt(deposited) + "). This is an example, not a promise." + growthMessage(balance, deposited);
+  result.style.borderColor = "#0B6B45";
   return false;
 }
 
