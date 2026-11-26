@@ -131,6 +131,32 @@ function checkTerms() {
   return message == "";
 }
 
+// Light green background while the user is typing in a box
+function highlight(field) {
+  field.style.backgroundColor = "#E3EEE7";
+}
+
+// Normal background when the user leaves the box
+function unhighlight(field) {
+  field.style.backgroundColor = "#FBF8F1";
+}
+
+// Runs when the sign-up form is reset: removes every message and red border
+function clearSignup() {
+  document.getElementById("nameErr").innerHTML = "";
+  document.getElementById("emailErr").innerHTML = "";
+  document.getElementById("pwErr").innerHTML = "";
+  document.getElementById("pw2Err").innerHTML = "";
+  document.getElementById("levelErr").innerHTML = "";
+  document.getElementById("termsErr").innerHTML = "";
+  document.getElementById("signupMsg").innerHTML = "";
+  markField("fullname", true);
+  markField("email", true);
+  markField("password", true);
+  markField("password2", true);
+  markField("level", true);
+}
+
 // Runs when the sign-up form is submitted
 function validateSignup() {
   var ok = checkName();

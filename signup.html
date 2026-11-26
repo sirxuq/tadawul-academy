@@ -29,21 +29,21 @@
 <div class="page">
 <h1>Create your account</h1>
 <section class="card shadow form-box">
-<form name="signupForm" method="post" onsubmit="return validateSignup()">
+<form name="signupForm" method="post" onsubmit="return validateSignup()" onreset="clearSignup()">
 <label for="fullname">Full name</label>
-<input type="text" id="fullname" name="fullname" class="field" size="30" maxlength="40" onblur="formatName(this)">
+<input type="text" id="fullname" name="fullname" class="field" size="30" maxlength="40" onfocus="highlight(this)" onblur="formatName(this); unhighlight(this); checkName()">
 <p class="error" id="nameErr"></p>
 <label for="email">Email</label>
-<input type="text" id="email" name="email" class="field" placeholder="name@example.com">
+<input type="text" id="email" name="email" class="field" placeholder="name@example.com" onfocus="highlight(this)" onblur="unhighlight(this); checkEmail()">
 <p class="error" id="emailErr"></p>
 <label for="password">Password (at least 8 characters)</label>
-<input type="password" id="password" name="password" class="field" autocomplete="off">
+<input type="password" id="password" name="password" class="field" autocomplete="off" onfocus="highlight(this)" onblur="unhighlight(this); checkPassword()">
 <p class="error" id="pwErr"></p>
 <label for="password2">Confirm password</label>
-<input type="password" id="password2" name="password2" class="field" autocomplete="off">
+<input type="password" id="password2" name="password2" class="field" autocomplete="off" onfocus="highlight(this)" onblur="unhighlight(this); checkPassword2()">
 <p class="error" id="pw2Err"></p>
 <label for="level">Your experience</label>
-<select id="level" name="level" class="field pick"><option value="">Choose one</option><option value="beginner">Complete beginner</option><option value="some">Some knowledge</option><option value="experienced">Experienced</option></select>
+<select id="level" name="level" class="field pick" onchange="checkLevel()"><option value="">Choose one</option><option value="beginner">Complete beginner</option><option value="some">Some knowledge</option><option value="experienced">Experienced</option></select>
 <p class="error" id="levelErr"></p>
 <label for="goal">What do you want to learn first?</label>
 <textarea id="goal" name="goal" class="field" rows="3" cols="30"></textarea>
@@ -54,7 +54,7 @@
 <p style="margin-top: 14px;"><strong>Preferred study time:</strong></p>
 <label class="inline"><input type="radio" name="time" value="day" checked> Daytime</label>
 <label class="inline"><input type="radio" name="time" value="night"> Evening</label>
-<p style="margin-top: 14px;"><label class="inline"><input type="checkbox" id="terms" name="terms"> I understand this site is for education only.</label></p>
+<p style="margin-top: 14px;"><label class="inline"><input type="checkbox" id="terms" name="terms" onclick="checkTerms()"> I understand this site is for education only.</label></p>
 <p class="error" id="termsErr"></p>
 <input type="submit" class="btn" value="Create account">
 <input type="reset" class="btn" value="Clear">
