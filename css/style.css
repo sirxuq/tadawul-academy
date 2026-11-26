@@ -2,9 +2,8 @@
 html { background-color: #111111; }
 body { margin: 0; background-color: #F3EEE3; color: #111111; font-family: Arial, Helvetica, sans-serif; font-size: 17px;
   background-image: url(../images/side-left.png), url(../images/side-right.png);
-  background-position: 12% top, 88% top;
-  background-repeat: repeat-y, repeat-y;
-  background-size: 180px auto, 180px auto; }
+  background-position: left top, right top;
+  background-repeat: repeat-y, repeat-y; }
 h1, h2, h3 { color: #111111; margin-top: 0; margin-bottom: 10px; }
 h1 { font-size: 42px; margin-bottom: 18px; }
 h2 { font-size: 26px; }
@@ -52,7 +51,7 @@ label { display: block; margin-top: 14px; margin-bottom: 4px; font-weight: bold;
 .pick { width: 344px; }
 .field:focus { border-color: #0B6B45; background-color: #FFFFFF; }
 .inline { display: inline; font-weight: normal; margin-top: 0; margin-bottom: 0; margin-right: 14px; }
-.error { color: #9B1C1C; font-size: 15px; margin-top: 2px; margin-bottom: 0; }
+.error { color: #9B1C1C; font-size: 15px; margin-top: 2px; margin-bottom: 0; height: 22px; }
 .msg { color: #0B6B45; font-weight: bold; margin-top: 14px; }
 .result { margin-top: 14px; padding: 12px 14px; border: 2px solid #0B6B45; background-color: #FBF8F1; font-weight: bold; }
 .btn { background-color: #111111; color: #F3EEE3; border: 2px solid #111111; padding: 10px 22px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; box-shadow: 4px 4px 0 #0B6B45; margin-top: 16px; margin-right: 12px; }

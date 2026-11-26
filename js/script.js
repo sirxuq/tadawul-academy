@@ -24,25 +24,130 @@ function showGreeting() {
   document.getElementById("greeting").innerHTML = getGreeting(hour) + ", and welcome to Tadawul Academy!";
 }
 
-// Sign-up form: HTML5 handles required fields, email and password length.
-// This function only checks that the two passwords match.
-function validateSignup() {
-  var pw = document.forms["signupForm"]["password"].value;
-  var pw2 = document.forms["signupForm"]["password2"].value;
-  if (pw != pw2) {
-    document.getElementById("pw2Err").innerHTML = "Passwords do not match.";
-    document.getElementById("signupMsg").innerHTML = "";
-  } else {
-    document.getElementById("pw2Err").innerHTML = "";
-    document.getElementById("signupMsg").innerHTML = "Account created (demo only, nothing is saved). Welcome to Tadawul Academy!";
-  }
-  return false; // stay on the page, there is no server
-}
-
 // Login form: HTML5 checks the email format and required fields
 function validateLogin() {
   document.getElementById("loginMsg").innerHTML = "Logged in (demo only, no server is used).";
   return false;
+}
+
+// ----- Sign-up form: every check is done by script -----
+
+// Returns true when nothing was typed
+function isEmpty(text) {
+  return text == "";
+}
+
+// Returns true when the text looks like an email address (name@site.com)
+function isValidEmail(email) {
+  var at = email.indexOf("@");
+  if (at < 1) {
+    return false;
+  }
+  if (email.indexOf("@", at + 1) != -1) {
+    return false;
+  }
+  if (email.indexOf(".", at) < at + 2) {
+    return false;
+  }
+  return true;
+}
+
+// Shows a message under a box and colors the box. Returns true when there is no message.
+function showResult(errorId, fieldId, message) {
+  document.getElementById(errorId).innerHTML = message;
+  markField(fieldId, message == "");
+  return message == "";
+}
+
+function checkName() {
+  var name = document.forms["signupForm"]["fullname"].value;
+  var message = "";
+  if (isEmpty(name)) {
+    message = "Please enter your full name.";
+  } else if (name.length < 3) {
+    message = "Your name must have at least 3 letters.";
+  }
+  return showResult("nameErr", "fullname", message);
+}
+
+function checkEmail() {
+  var email = document.forms["signupForm"]["email"].value;
+  var message = "";
+  if (isEmpty(email)) {
+    message = "Please enter your email.";
+  } else if (isValidEmail(email) == false) {
+    message = "Enter a valid email, like name@example.com.";
+  }
+  return showResult("emailErr", "email", message);
+}
+
+function checkPassword() {
+  var pw = document.forms["signupForm"]["password"].value;
+  var hasNumber = false;
+  for (var i = 0; i < pw.length; i++) {
+    var letter = pw.charAt(i);
+    if (letter >= "0" && letter <= "9") {
+      hasNumber = true;
+    }
+  }
+  var message = "";
+  if (isEmpty(pw)) {
+    message = "Please choose a password.";
+  } else if (pw.length < 8) {
+    message = "The password needs at least 8 characters.";
+  } else if (hasNumber == false) {
+    message = "The password needs at least one number.";
+  }
+  return showResult("pwErr", "password", message);
+}
+
+function checkPassword2() {
+  var pw = document.forms["signupForm"]["password"].value;
+  var pw2 = document.forms["signupForm"]["password2"].value;
+  var message = "";
+  if (isEmpty(pw2)) {
+    message = "Please type the password again.";
+  } else if (pw != pw2) {
+    message = "The two passwords do not match.";
+  }
+  return showResult("pw2Err", "password2", message);
+}
+
+function checkLevel() {
+  var level = document.forms["signupForm"]["level"].value;
+  var message = "";
+  if (isEmpty(level)) {
+    message = "Please choose your experience.";
+  }
+  return showResult("levelErr", "level", message);
+}
+
+function checkTerms() {
+  var message = "";
+  if (document.forms["signupForm"]["terms"].checked == false) {
+    message = "Please tick the box to continue.";
+  }
+  document.getElementById("termsErr").innerHTML = message;
+  return message == "";
+}
+
+// Runs when the sign-up form is submitted
+function validateSignup() {
+  var ok = checkName();
+  ok = checkEmail() && ok;
+  ok = checkPassword() && ok;
+  ok = checkPassword2() && ok;
+  ok = checkLevel() && ok;
+  ok = checkTerms() && ok;
+
+  if (ok) {
+    var name = document.forms["signupForm"]["fullname"].value;
+    document.getElementById("signupMsg").innerHTML = "Account created (demo only, nothing is saved).";
+    window.alert("Welcome to Tadawul Academy, " + name + "!");
+  } else {
+    document.getElementById("signupMsg").innerHTML = "";
+  }
+  return false; // stay on the page, there is no server
 }
 
 // Returns how much money you would have after saving every month

@@ -31,16 +31,20 @@
 <section class="card shadow form-box">
 <form name="signupForm" method="post" onsubmit="return validateSignup()">
 <label for="fullname">Full name</label>
-<input type="text" id="fullname" name="fullname" class="field" size="30" maxlength="40"  onblur="formatName(this)" required>
+<input type="text" id="fullname" name="fullname" class="field" size="30" maxlength="40" onblur="formatName(this)">
+<p class="error" id="nameErr"></p>
 <label for="email">Email</label>
-<input type="email" id="email" name="email" class="field" placeholder="name@example.com" required>
+<input type="text" id="email" name="email" class="field" placeholder="name@example.com">
+<p class="error" id="emailErr"></p>
 <label for="password">Password (at least 8 characters)</label>
-<input type="password" id="password" name="password" class="field" pattern=".{8,}" autocomplete="off" required>
+<input type="password" id="password" name="password" class="field" autocomplete="off">
+<p class="error" id="pwErr"></p>
 <label for="password2">Confirm password</label>
-<input type="password" id="password2" name="password2" class="field" autocomplete="off" required>
+<input type="password" id="password2" name="password2" class="field" autocomplete="off">
 <p class="error" id="pw2Err"></p>
 <label for="level">Your experience</label>
-<select id="level" name="level" class="field pick"><option>Complete beginner</option><option>Some knowledge</option><option>Experienced</option></select>
+<select id="level" name="level" class="field pick"><option value="">Choose one</option><option value="beginner">Complete beginner</option><option value="some">Some knowledge</option><option value="experienced">Experienced</option></select>
+<p class="error" id="levelErr"></p>
 <label for="goal">What do you want to learn first?</label>
 <textarea id="goal" name="goal" class="field" rows="3" cols="30"></textarea>
 <p style="margin-top: 14px;"><strong>Topics you want to learn:</strong></p>
@@ -50,7 +54,8 @@
 <p style="margin-top: 14px;"><strong>Preferred study time:</strong></p>
 <label class="inline"><input type="radio" name="time" value="day" checked> Daytime</label>
 <label class="inline"><input type="radio" name="time" value="night"> Evening</label>
-<p style="margin-top: 14px;"><label class="inline"><input type="checkbox" name="terms" required> I understand this site is for education only.</label></p>
+<p style="margin-top: 14px;"><label class="inline"><input type="checkbox" id="terms" name="terms"> I understand this site is for education only.</label></p>
+<p class="error" id="termsErr"></p>
 <input type="submit" class="btn" value="Create account">
 <input type="reset" class="btn" value="Clear">
 <p class="msg" id="signupMsg"></p>
