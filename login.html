@@ -40,11 +40,13 @@ function togglePassword() {
 <div class="page">
 <h1>Log in</h1>
 <section class="card shadow form-box">
-<form name="loginForm" method="post" onsubmit="return validateLogin()">
+<form name="loginForm" method="post" onsubmit="return validateLogin()" onreset="clearLogin()">
 <label for="loginEmail">Email</label>
-<input type="email" id="loginEmail" name="email" class="field" placeholder="name@example.com" required>
+<input type="text" id="loginEmail" name="email" class="field" placeholder="name@example.com" onfocus="highlight(this)" onblur="unhighlight(this)">
+<p class="error" id="loginEmailErr"></p>
 <label for="loginPassword">Password</label>
-<input type="password" id="loginPassword" name="password" class="field" required>
+<input type="password" id="loginPassword" name="password" class="field" onfocus="highlight(this)" onblur="unhighlight(this)">
+<p class="error" id="loginPwErr"></p>
 <p style="margin-top: 10px;"><label class="inline"><input type="checkbox" id="showPw" onclick="togglePassword()"> Show password</label></p>
 <input type="submit" class="btn" value="Log in">
 <input type="reset" class="btn" value="Clear">
@@ -65,4 +67,5 @@ function togglePassword() {
 </div>
 </footer>
 </body>
+</html>
 </html>

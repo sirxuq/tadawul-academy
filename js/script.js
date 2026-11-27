@@ -24,10 +24,42 @@ function showGreeting() {
   document.getElementById("greeting").innerHTML = getGreeting(hour) + ", and welcome to Tadawul Academy!";
 }
 
-// Login form: HTML5 checks the email format and required fields
+// ----- Login form: every check is done by script -----
+
+// Runs when the login form is submitted
 function validateLogin() {
-  document.getElementById("loginMsg").innerHTML = "Logged in (demo only, no server is used).";
-  return false;
+  var email = document.forms["loginForm"]["email"].value;
+  var pw = document.forms["loginForm"]["password"].value;
+  var emailMessage = "";
+  var pwMessage = "";
+
+  if (isEmpty(email)) {
+    emailMessage = "Please enter your email.";
+  } else if (isValidEmail(email) == false) {
+    emailMessage = "Enter a valid email, like name@example.com.";
+  }
+  if (isEmpty(pw)) {
+    pwMessage = "Please enter your password.";
+  }
+
+  var emailOk = showResult("loginEmailErr", "loginEmail", emailMessage);
+  var pwOk = showResult("loginPwErr", "loginPassword", pwMessage);
+
+  if (emailOk && pwOk) {
+    document.getElementById("loginMsg").innerHTML = "Logged in (demo only, no server is used).";
+  } else {
+    document.getElementById("loginMsg").innerHTML = "";
+  }
+  return false; // stay on the page, there is no server
+}
+
+// Runs when the login form is reset: removes every message and red border
+function clearLogin() {
+  document.getElementById("loginEmailErr").innerHTML = "";
+  document.getElementById("loginPwErr").innerHTML = "";
+  document.getElementById("loginMsg").innerHTML = "";
+  markField("loginEmail", true);
+  markField("loginPassword", true);
 }
 
 // ----- Sign-up form: every check is done by script -----
