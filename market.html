@@ -31,6 +31,53 @@ function showRisk() {
       box.style.borderLeftColor = "#0B6B45";
   }
 }
+
+// ----- Watchlist: adds and removes table rows -----
+var watchCount = 0; // how many companies are on the list
+
+// Returns true when the text has only the digits 0 to 9
+function onlyDigits(text) {
+  for (var i = 0; i < text.length; i++) {
+    var letter = text.charAt(i);
+    if (letter < "0" || letter > "9") {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Adds a row to the watchlist after checking both boxes
+function addWatch() {
+  var ticker = document.getElementById("watchTicker").value;
+  var company = document.getElementById("watchCompany").value;
+  var error = "";
+
+  if (ticker == "" || company == "") {
+    error = "Please fill in both boxes.";
+  } else if (ticker.length != 4 || onlyDigits(ticker) == false) {
+    error = "The ticker must be exactly 4 digits, like 2222.";
+  } else if (company.indexOf("<") != -1 || company.indexOf(">") != -1) {
+    error = "The company name cannot contain the signs < or >.";
+  }
+
+  if (error != "") {
+    window.alert(error);
+    return;
+  }
+
+  watchCount = watchCount + 1;
+  document.getElementById("watchBody").innerHTML += "<tr><td class=\"mono\">" + ticker + "</td><td>" + company + "</td></tr>";
+  document.getElementById("watchCount").innerHTML = watchCount;
+  document.getElementById("watchTicker").value = "";
+  document.getElementById("watchCompany").value = "";
+}
+
+// Removes every row from the watchlist
+function clearWatch() {
+  document.getElementById("watchBody").innerHTML = "";
+  watchCount = 0;
+  document.getElementById("watchCount").innerHTML = watchCount;
+}
 </script>
 </head>
 <body id="top" onload="showYear()">
@@ -52,7 +99,7 @@ function showRisk() {
 </header>
 <div class="page">
 <h1>Market data and calculator</h1>
-<p><a href="#companies">Example companies</a> | <a href="#risk">Risk level</a> | <a href="#calculator">Growth calculator</a></p>
+<p><a href="#companies">Example companies</a> | <a href="#watchlist">Watchlist</a> | <a href="#risk">Risk level</a> | <a href="#calculator">Growth calculator</a></p>
 <section id="companies">
 <h2>Example companies</h2>
 <table summary="Well-known companies listed on the Saudi Exchange">
@@ -66,6 +113,20 @@ function showRisk() {
 <tr><td class="mono">1211</td><td>Maaden</td><td>Materials</td></tr>
 </tbody></table>
 <p class="note">This list shows examples to learn from. It does not recommend any company, and the site shows no live prices.</p>
+</section>
+<section class="card" id="watchlist">
+<h2>My watchlist</h2>
+<p>Write down companies you want to study. Nothing is saved when you leave the page.</p>
+<label for="watchTicker">Ticker (4 digits)</label>
+<input type="text" id="watchTicker" class="field" maxlength="4" placeholder="2222">
+<label for="watchCompany">Company name</label>
+<input type="text" id="watchCompany" class="field" placeholder="Saudi Aramco">
+<p><input type="button" class="btn" value="Add to watchlist" onclick="addWatch()"><input type="button" class="btn" value="Clear list" onclick="clearWatch()"></p>
+<table summary="Companies on my watchlist">
+<thead><tr><th>Ticker</th><th>Company</th></tr></thead>
+<tbody id="watchBody"></tbody>
+</table>
+<p>Companies on your watchlist: <span id="watchCount">0</span></p>
 </section>
 <section class="card" id="risk">
 <h2>What is your risk level?</h2>
