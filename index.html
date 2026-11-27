@@ -27,7 +27,7 @@
 .faq-item p { margin-top: 12px; margin-bottom: 0; padding-top: 12px; border-top: 1px solid #111111; }
 </style>
 </head>
-<body id="top" onload="showYear(); showGreeting()">
+<body id="top" onload="showYear(); showGreeting(); showTerm()">
 <header class="site-header">
 <div class="wrap">
 <img src="images/logo.svg" class="logo" width="340" height="96" alt="Tadawul Academy logo. Click it to open the About Us page." usemap="#logomap">
@@ -88,6 +88,11 @@
 <li>Explore the example companies on the <a href="market.html">Market Data</a> page.</li>
 <li><a href="signup.html">Sign up</a> to follow along (demo account).</li>
 </ol>
+</section>
+<section class="card" id="term">
+<h2>Term of the day</h2>
+<p id="termText"></p>
+<p><input type="button" class="btn" value="Show next term" onclick="nextTerm()"></p>
 </section>
 <section id="faq">
 <h2>Common questions</h2>

@@ -287,3 +287,51 @@ function calculate() {
 function formatName(field) {
   field.value = field.value.toUpperCase();
 }
+
+// ----- Term of the day (home page) -----
+var termNumber = new Date().getDay(); // global: 0 = Sunday ... 6 = Saturday
+
+// Returns the text of one glossary term
+function getTerm(number) {
+  var text;
+  switch (number) {
+    case 0:
+      text = "<strong>Share</strong>: a unit of ownership in a company.";
+      break;
+    case 1:
+      text = "<strong>Dividend</strong>: a part of company profit paid to shareholders.";
+      break;
+    case 2:
+      text = "<strong>Index (TASI)</strong>: a number that tracks how a group of listed companies performs overall.";
+      break;
+    case 3:
+      text = "<strong>IPO</strong>: the first time a company offers its shares to the public.";
+      break;
+    case 4:
+      text = "<strong>Sector</strong>: a group of similar businesses, such as banks or telecom.";
+      break;
+    case 5:
+      text = "<strong>Diversification</strong>: spreading money across different investments to reduce risk.";
+      break;
+    case 6:
+      text = "<strong>Portfolio</strong>: all the investments you own, taken together.";
+      break;
+    default:
+      text = "Learn one new term every day.";
+  }
+  return text;
+}
+
+// Shows the current term
+function showTerm() {
+  document.getElementById("termText").innerHTML = getTerm(termNumber);
+}
+
+// Moves to the next term (after the last one it starts again)
+function nextTerm() {
+  termNumber = termNumber + 1;
+  if (termNumber > 6) {
+    termNumber = 0;
+  }
+  showTerm();
+}
