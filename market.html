@@ -78,6 +78,34 @@ function clearWatch() {
   watchCount = 0;
   document.getElementById("watchCount").innerHTML = watchCount;
 }
+
+// ----- How long does it take to double your money? -----
+
+// Returns the number of years it takes for money to double at a yearly rate (in %)
+function yearsToDouble(rate) {
+  var years = 0;
+  var money = 1;
+  while (money < 2) {
+    money = money * (1 + rate / 100);
+    years = years + 1;
+  }
+  return years;
+}
+
+// Reads the rate, checks it and shows the answer
+function showDoubling() {
+  var rateText = document.getElementById("doubleRate").value;
+  var rate = parseFloat(rateText);
+  var out = document.getElementById("doubleResult");
+
+  if (rateText == "" || rate < 0.1 || rate > 50) {
+    out.innerHTML = "Enter a yearly return between 0.1 and 50.";
+    out.style.borderColor = "#9B1C1C";
+  } else {
+    out.innerHTML = "At " + rate + "% a year, your money would double in about " + yearsToDouble(rate) + " years.";
+    out.style.borderColor = "#0B6B45";
+  }
+}
 </script>
 </head>
 <body id="top" onload="showYear()">
@@ -99,7 +127,7 @@ function clearWatch() {
 </header>
 <div class="page">
 <h1>Market data and calculator</h1>
-<p><a href="#companies">Example companies</a> | <a href="#watchlist">Watchlist</a> | <a href="#risk">Risk level</a> | <a href="#calculator">Growth calculator</a></p>
+<p><a href="#companies">Example companies</a> | <a href="#watchlist">Watchlist</a> | <a href="#risk">Risk level</a> | <a href="#doubling">Doubling time</a> | <a href="#calculator">Growth calculator</a></p>
 <section id="companies">
 <h2>Example companies</h2>
 <table summary="Well-known companies listed on the Saudi Exchange">
@@ -138,6 +166,13 @@ function clearWatch() {
 <option value="high">High</option>
 </select>
 <p id="riskText" class="note" style="margin-top: 14px;">Choose a level above to read about it.</p>
+</section>
+<section class="card" id="doubling">
+<h2>How long to double your money?</h2>
+<label for="doubleRate">Yearly return (%)</label>
+<input type="number" id="doubleRate" class="field" step="any" value="7">
+<p><input type="button" class="btn" value="Find out" onclick="showDoubling()"></p>
+<div id="doubleResult" class="result">Your answer will appear here.</div>
 </section>
 <section id="calculator" class="card shadow">
 <h2>Growth calculator</h2>
