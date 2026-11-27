@@ -21,6 +21,11 @@ function showBull() {
   document.getElementById("moodPic").alt = "Chart of a rising market";
   document.getElementById("moodText").innerHTML = "<strong>Bull market:</strong> prices are rising and investors feel confident.";
 }
+
+// Changes the text size of the whole page
+function changeSize(size) {
+  document.body.style.fontSize = size;
+}
 </script>
 </head>
 <body id="top" onload="showYear()">
@@ -42,6 +47,10 @@ function showBull() {
 </header>
 <div class="page">
 <h1>Learn the basics</h1>
+<p><strong>Text size:</strong>
+<input type="button" class="btn" value="A-" onclick="changeSize('15px')">
+<input type="button" class="btn" value="A" onclick="changeSize('17px')">
+<input type="button" class="btn" value="A+" onclick="changeSize('20px')"></p>
 <nav class="card"><h2>On this page</h2><ol>
 <li><a href="#basics">Market basics</a></li><li><a href="#mood">Bull and bear markets</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#first-steps">First steps</a></li></ol></nav>
 <article class="card" id="basics">
