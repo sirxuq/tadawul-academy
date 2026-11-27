@@ -8,6 +8,20 @@
 <title>About Us | Tadawul Academy</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/script.js"></script>
+<script>
+// Embedded script: shows or hides the project facts table
+function toggleFacts() {
+  var facts = document.getElementById("factsBox");
+  var button = document.getElementById("factsButton");
+  if (facts.style.display == "none") {
+    facts.style.display = "block";
+    button.value = "Hide project facts";
+  } else {
+    facts.style.display = "none";
+    button.value = "Show project facts";
+  }
+}
+</script>
 </head>
 <body id="top" onload="showYear()">
 <header class="site-header">
@@ -43,6 +57,8 @@
 </section>
 <section>
 <h2>Project facts</h2>
+<p><input type="button" id="factsButton" class="btn" value="Hide project facts" onclick="toggleFacts()"></p>
+<div id="factsBox">
 <table summary="Course details">
 <tbody>
 <tr><th>Course</th><td>CPIS-358 Internet Applications &amp; Web Programming</td></tr>
@@ -50,6 +66,7 @@
 <tr><th>Instructor</th><td>Dr. Sachi Arafat</td></tr>
 <tr><th>Built with</th><td>HTML, CSS, JavaScript, Git and GitHub</td></tr>
 </tbody></table>
+</div>
 </section>
 <a class="top-link" href="#top">Back to top</a>
 </div>
