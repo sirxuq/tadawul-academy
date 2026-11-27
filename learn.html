@@ -8,6 +8,20 @@
 <title>Learn the Basics | Tadawul Academy</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/script.js"></script>
+<script>
+// Embedded script: picture rollover on the Learn page
+function showBear() {
+  document.getElementById("moodPic").src = "images/bear.png";
+  document.getElementById("moodPic").alt = "Chart of a falling market";
+  document.getElementById("moodText").innerHTML = "<strong>Bear market:</strong> prices are falling and investors feel nervous.";
+}
+
+function showBull() {
+  document.getElementById("moodPic").src = "images/bull.png";
+  document.getElementById("moodPic").alt = "Chart of a rising market";
+  document.getElementById("moodText").innerHTML = "<strong>Bull market:</strong> prices are rising and investors feel confident.";
+}
+</script>
 </head>
 <body id="top" onload="showYear()">
 <header class="site-header">
@@ -29,12 +43,18 @@
 <div class="page">
 <h1>Learn the basics</h1>
 <nav class="card"><h2>On this page</h2><ol>
-<li><a href="#basics">Market basics</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#first-steps">First steps</a></li></ol></nav>
+<li><a href="#basics">Market basics</a></li><li><a href="#mood">Bull and bear markets</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#first-steps">First steps</a></li></ol></nav>
 <article class="card" id="basics">
 <h2>Market basics</h2>
 <p>The Saudi Exchange, known as Tadawul, is where shares of Saudi companies are bought and sold. A share is a small piece of ownership in a company. When the company does well, its share price may rise and it may pay dividends. When it does badly, the price may fall.</p>
 <p>The Capital Market Authority (CMA) regulates the market. Companies are listed on the Main Market or on Nomu, the parallel market for smaller companies with lighter listing rules.</p>
 </article>
+<section class="card" id="mood">
+<h2>Bull market or bear market?</h2>
+<p>Move your mouse over the picture to see the other kind of market.</p>
+<img id="moodPic" src="images/bull.png" width="480" height="240" alt="Chart of a rising market" onmouseover="showBear()" onmouseout="showBull()">
+<p id="moodText"><strong>Bull market:</strong> prices are rising and investors feel confident.</p>
+</section>
 <section id="glossary">
 <h2>Glossary</h2>
 <table summary="Key market terms and their meanings">
