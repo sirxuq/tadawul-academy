@@ -8,6 +8,30 @@
 <title>Market Data and Calculator | Tadawul Academy</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/script.js"></script>
+<script>
+// Embedded script: scripts that are used only on the Market Data page
+function showRisk() {
+  var level = document.getElementById("riskLevel").value;
+  var box = document.getElementById("riskText");
+  switch (level) {
+    case "low":
+      box.innerHTML = "<strong>Low risk:</strong> you prefer steady growth and accept smaller returns. Spreading your money across sectors matters most for you.";
+      box.style.borderLeftColor = "#0B6B45";
+      break;
+    case "medium":
+      box.innerHTML = "<strong>Medium risk:</strong> you accept some ups and downs for better growth. Keep a mix of different sectors.";
+      box.style.borderLeftColor = "#111111";
+      break;
+    case "high":
+      box.innerHTML = "<strong>High risk:</strong> you accept big ups and downs for the chance of bigger growth. You could also lose a lot, so only use money you can afford to lose.";
+      box.style.borderLeftColor = "#9B1C1C";
+      break;
+    default:
+      box.innerHTML = "Choose a level above to read about it.";
+      box.style.borderLeftColor = "#0B6B45";
+  }
+}
+</script>
 </head>
 <body id="top" onload="showYear()">
 <header class="site-header">
@@ -28,7 +52,7 @@
 </header>
 <div class="page">
 <h1>Market data and calculator</h1>
-<p><a href="#companies">Example companies</a> | <a href="#calculator">Growth calculator</a></p>
+<p><a href="#companies">Example companies</a> | <a href="#risk">Risk level</a> | <a href="#calculator">Growth calculator</a></p>
 <section id="companies">
 <h2>Example companies</h2>
 <table summary="Well-known companies listed on the Saudi Exchange">
@@ -42,6 +66,17 @@
 <tr><td class="mono">1211</td><td>Maaden</td><td>Materials</td></tr>
 </tbody></table>
 <p class="note">This list shows examples to learn from. It does not recommend any company, and the site shows no live prices.</p>
+</section>
+<section class="card" id="risk">
+<h2>What is your risk level?</h2>
+<label for="riskLevel">Choose one</label>
+<select id="riskLevel" class="field pick" onchange="showRisk()">
+<option value="">Choose one</option>
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="high">High</option>
+</select>
+<p id="riskText" class="note" style="margin-top: 14px;">Choose a level above to read about it.</p>
 </section>
 <section id="calculator" class="card shadow">
 <h2>Growth calculator</h2>
